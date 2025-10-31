@@ -22,6 +22,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import StandardScaler
 
 """###Función constructora phi"""
 
@@ -509,3 +510,20 @@ print("20 Predicciones:")
 for i in range(20):
     if i < len(y_test):
         print(f"Valores Reales: {y_test[i]:.2f}, Valores Predichos: {y_pred[i]:.2f}")
+
+"""##7. Realice un análisis exploratorio de la base de datos, determine 2 clases a evaluar y mencione el criterio que utilizo: implemente cuantos gráficos como sea necesario."""
+
+#dataframe que se va a leer con la bd de data_arrhythmia según lo solicitado
+#El archivo originalmente viene separado con ";" y es por esto que se hace la especificación sep, para determinar el separador de las columnas
+df_arr = pd.read_csv("data_arrhythmia.csv", sep=';')
+
+#info de la bd
+print(df_arr.head())
+
+#Tamaño del dataset
+print(df_arr.shape)
+#452, 280
+
+print(df_arr.info())
+
+print(df_arr.describe())
